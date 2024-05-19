@@ -3,5 +3,6 @@ PyJWT
 fastapi[all]
 nest_asyncio
 SQLAlchemy
+psycopg2
 deepface==0.0.88
 tensorflow==2.14.0
