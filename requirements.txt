@@ -3,4 +3,4 @@ fastapi[all]
 nest_asyncio
 SQLAlchemy
 deepface==0.0.88
-tensorflow==2.15.0
+tensorflow==2.14.0
