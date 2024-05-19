@@ -21,8 +21,7 @@ from jwt import PyJWTError
 
 port=8888
 gc.collect()
-
-DATABASE_URL = "postgresql://airlicht_user:knndep71DQXpG3HvsPRzcSngrMOSG6Wv@dpg-cp4p8l0cmk4c73en7lhg-a.oregon-postgres.render.com/airlicht"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
