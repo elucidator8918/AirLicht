@@ -1,2 +1,0 @@
-All api functions are created here
-like for login, signup, etc
