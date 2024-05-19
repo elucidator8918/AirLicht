@@ -21,7 +21,7 @@ from jwt import PyJWTError
 
 port=8888
 gc.collect()
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
