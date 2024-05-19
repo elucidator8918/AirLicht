@@ -1,7 +1,7 @@
-tensorflow-cpu==2.15.0
 deepface
 passlib
 fastapi[all]
 nest_asyncio
 google-generativeai
 SQLAlchemy
+tensorflow==2.15.0
