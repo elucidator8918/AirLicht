@@ -66,7 +66,7 @@ def decode_token(token: str):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
 
 
-app = FastAPI(title="SIH 2023 Backend")
+app = FastAPI(title="Airbus 2024 Backend")
 
 app.add_middleware(
 CORSMiddleware,
