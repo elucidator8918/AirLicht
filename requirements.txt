@@ -1,7 +1,6 @@
-deepface
 passlib
 fastapi[all]
 nest_asyncio
-google-generativeai
 SQLAlchemy
+deepface
 tensorflow==2.15.0
