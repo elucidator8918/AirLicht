@@ -2,9 +2,9 @@ import React from "react";
 
 const Login = () => {
   return (
-    <>
-      <div>Login Page</div>
-    </>
+      <div className="text-richblack-5">
+        Login Page
+      </div>
   );
 };
 
