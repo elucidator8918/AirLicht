@@ -1,6 +1,6 @@
 passlib
 PyJWT
-bcrypt
+bcrypt==4.0.1
 fastapi[all]
 SQLAlchemy
 psycopg2
