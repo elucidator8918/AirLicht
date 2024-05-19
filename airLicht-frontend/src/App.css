@@ -1,1 +1,10 @@
 /* App.css */
+.color-round-grad {
+    background: linear-gradient(124deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%);
+    filter: blur(130px);
+}
+
+.color-round-grad1 {
+    background: linear-gradient(118deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+    filter: blur(130px);
+}
