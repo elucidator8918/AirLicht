@@ -1,0 +1,6 @@
+deepface
+passlib
+fastapi[all]
+nest_asyncio
+google-generativeai
+SQLAlchemy
