@@ -3,7 +3,6 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from passlib.context import CryptContext
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import nest_asyncio
 import uuid
 import os
 import uvicorn
@@ -146,5 +145,3 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             raise HTTPException(status_code=399, detail="Face could not be detected. Please confirm that the picture is a face photo.")
         else:
             raise HTTPException(status_code=500, detail=str(e))
-
-nest_asyncio.apply()
