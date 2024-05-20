@@ -157,7 +157,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 async def langmod(request: TTSNER = Body(...), token: str = Header(...)):
     try:
       decoded_token = decode_token(token)
-      result = model.generate_content(request.text+". Make the output consise and limited within 128 words.").text
+      result = gemini.generate_content(request.text+". Make the output consise and limited within 128 words.").text
       return {"text":result}
     except HTTPException as e:
         raise e
