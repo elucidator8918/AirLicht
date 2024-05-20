@@ -26,6 +26,11 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 gemini = genai.GenerativeModel('gemini-pro')
 
+os.system("wget https://lh3.googleusercontent.com/iUHP24k5tW9vMIWZ-2THC5A_5HWn6uWVu0VhQU_iultlHnb2mA9cNHntVYUsigK1v3W7JG7sRL-zcWWfGRccL8LZZz5RzhKJgbzwsII=s320")
+x="iUHP24k5tW9vMIWZ-2THC5A_5HWn6uWVu0VhQU_iultlHnb2mA9cNHntVYUsigK1v3W7JG7sRL-zcWWfGRccL8LZZz5RzhKJgbzwsII=s320"
+DeepFace.verify(x,x, model_name='Facenet512', distance_metric='euclidean_l2').get('verified')
+os.remove(x)
+
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
