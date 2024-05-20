@@ -17,10 +17,14 @@ import datetime
 import re
 import jwt
 from jwt import PyJWTError
+import google.generativeai as genai
 
 port=8888
 gc.collect()
+
 DATABASE_URL = os.environ.get('DATABASE_URL')
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+gemini = genai.GenerativeModel('gemini-pro')
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -31,6 +35,10 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+class TTSNER(BaseModel):
+    text: str
+    emotion: str = "Cheerful & Professional"
 
 class UserDB(Base):
     __tablename__ = "users"
@@ -64,7 +72,6 @@ def decode_token(token: str):
         return payload
     except PyJWTError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
-
 
 app = FastAPI(title="Airbus 2024 Backend")
 
@@ -145,3 +152,14 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             raise HTTPException(status_code=399, detail="Face could not be detected. Please confirm that the picture is a face photo.")
         else:
             raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/recommendation/")
+async def langmod(request: TTSNER = Body(...), token: str = Header(...)):
+    try:
+      decoded_token = decode_token(token)
+      result = model.generate_content(request.text+". Make the output consise and limited within 128 words.").text
+      return {"text":result}
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
