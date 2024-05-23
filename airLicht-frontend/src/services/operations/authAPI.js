@@ -24,6 +24,8 @@ export const login = (formData, navigate) => {
       // debug here
 
       dispatch(setToken("hh"));
+      navigate("/dashboard");
+      
       const accessToken = res.headers["access_token"];
       console.log(accessToken);
 
