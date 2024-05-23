@@ -1,5 +1,5 @@
 import React from "react";
-import HighlightText from "../components/HighlightText";
+import HighlightText from "./common/HighlightText";
 
 const Footer = () => {
   return (

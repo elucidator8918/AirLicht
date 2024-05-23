@@ -1,5 +1,5 @@
 import React from "react";
-import HighlightText from "../components/HighlightText";
+import HighlightText from "../components/common/HighlightText";
 import AeroPlane from "../assets/aeroplane.png";
 import { useCases } from "../data/use-cases";
 import { keyFunctions } from "../data/key-functions";
