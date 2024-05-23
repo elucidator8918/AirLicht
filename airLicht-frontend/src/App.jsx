@@ -6,6 +6,11 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import AboutUs from "./pages/AboutUs";
 import FaqsPage from "./pages/FaqsPage";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import History from "./components/dashboard/History";
+import NotFound from "./components/NotFound";
+import ChatWithModel from "./components/dashboard/ChatWithModel";
 
 function App() {
   return (
@@ -18,6 +23,21 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FaqsPage />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          <Route path="" element={<ChatWithModel />} />
+          <Route path="history" element={<History />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

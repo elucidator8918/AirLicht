@@ -15,8 +15,6 @@ const Navbar = () => {
   return (
     <>
       <div className="relative min-h-16 border-b-[1px] text-richblack-50 border-richblack-700 flex items-center justify-center bg-richblack-800 transition-all duration-200">
-        <div className="color-round-grad absolute left-0 top-0 w-[60%] h-[60%]"></div>
-        <div className="color-round-grad1 absolute right-0 -bottom-20 w-[60%] h-[60%]"></div>
         <div className="w-11/12 z-10 max-w-maxContent flex justify-between items-center flex-col">
           <div className="flex justify-between items-center w-full">
             <div>
