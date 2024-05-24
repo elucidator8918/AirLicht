@@ -54,7 +54,10 @@ class UserDB(Base):
 Base.metadata.create_all(bind=engine)
 
 def extract(email):
-    return re.match(r'([^@]+)@', email).group(1)
+    try:
+        return re.match(r'([^@]+)@', email).group(1)
+    except Exception as e:
+        return None
 
 def remove(known_image_path,test_image_path):
     os.remove(known_image_path)
@@ -110,6 +113,8 @@ async def signup(form_data: OAuth2PasswordRequestForm = Depends(), img: UploadFi
         hashed_password = pwd_context.hash(form_data.password)
         if result<0.5:
             return {"message":"Face could not be detected. Please confirm that the picture is a face photo."}
+        if extract(form_data.username.lower()) is None:
+            return HTTPException(status_code=500, detail="Please Enter a Valid Email-ID")
         new_user = UserDB(username=form_data.username.lower(), password=hashed_password, image=img_binary_data)
         db.add(new_user)
         db.commit()
