@@ -1,0 +1,17 @@
+.camera-positions-table {
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.camera-positions-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.camera-positions-table table, .camera-positions-table th, .camera-positions-table td {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: left;
+    color: white; 
+}
