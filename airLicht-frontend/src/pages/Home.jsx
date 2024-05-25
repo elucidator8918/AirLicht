@@ -1,9 +1,5 @@
 import React from "react";
 import HighlightText from "../components/common/HighlightText";
-<<<<<<< HEAD
-//import AeroPlane from "../assets/aeroplane.png";
-=======
->>>>>>> 56fa0e3ff2c2da031b57ee7ef4a718e785da6209
 import { useCases } from "../data/use-cases";
 import { keyFunctions } from "../data/key-functions";
 import Footer from "../components/Footer";
@@ -64,13 +60,6 @@ const Home = () => {
               wiring.
             </p>
           </div>
-<<<<<<< HEAD
-
-          {/* <div className="md:w-[50%] z-10 w-full rounded-md bg-gradient-to-r from-blue-300 via-blue-500 to-blue-900">
-            <img src={AeroPlane} alt="aeroplane" />
-          </div> */}
-=======
->>>>>>> 56fa0e3ff2c2da031b57ee7ef4a718e785da6209
           <div className="color-round-grad opacity-60 absolute right-0 -bottom-20 w-[60%] h-[60%]"></div>
           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
           <Airplane/>
