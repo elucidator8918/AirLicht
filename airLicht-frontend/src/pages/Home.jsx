@@ -1,10 +1,41 @@
 import React from "react";
 import HighlightText from "../components/common/HighlightText";
+<<<<<<< HEAD
 //import AeroPlane from "../assets/aeroplane.png";
+=======
+>>>>>>> 56fa0e3ff2c2da031b57ee7ef4a718e785da6209
 import { useCases } from "../data/use-cases";
 import { keyFunctions } from "../data/key-functions";
 import Footer from "../components/Footer";
 import { TypeAnimation } from "react-type-animation";
+import { Canvas} from '@react-three/fiber'
+import { OrbitControls, useGLTF} from '@react-three/drei'
+
+function AirplaneShape() {
+  const { scene } = useGLTF("./a380_with_a380plus_winglet.glb");
+  return (
+    <mesh>
+      <ambientLight intensity={1} color="white" />
+      <directionalLight intensity={1} position={[5, 5, 5]} />
+      <spotLight intensity={1} angle={0.3} penumbra={1} position={[5, 15, 10]} />
+      <primitive
+        object={scene}
+        scale={0.005}
+        position={[0, 0, -0.5]}
+        rotation={[0, Math.PI / 2, 0]}
+      />
+    </mesh>
+  );
+}
+
+function Airplane() {
+  return (
+    <Canvas frameloop="demand" camera={{ position: [700, 330, 500], fov: 2.5 }} style={{ width: '600px', height: '600px' }}>
+      <AirplaneShape />
+      <OrbitControls autoRotate autoRotateSpeed={0.4} />
+    </Canvas>
+  );
+}
 
 const Home = () => {
   return (
@@ -33,11 +64,17 @@ const Home = () => {
               wiring.
             </p>
           </div>
+<<<<<<< HEAD
 
           {/* <div className="md:w-[50%] z-10 w-full rounded-md bg-gradient-to-r from-blue-300 via-blue-500 to-blue-900">
             <img src={AeroPlane} alt="aeroplane" />
           </div> */}
+=======
+>>>>>>> 56fa0e3ff2c2da031b57ee7ef4a718e785da6209
           <div className="color-round-grad opacity-60 absolute right-0 -bottom-20 w-[60%] h-[60%]"></div>
+          <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+          <Airplane/>
+        </div>          
         </div>
       </div>
 
