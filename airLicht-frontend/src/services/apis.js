@@ -7,5 +7,5 @@ export const authEndpoints = {
 };
 
 export const modelEndpoints = {
-  PROVIDE_SUGGESTIONS: BASE_URL + "/model/suggestions",
+  PROVIDE_RECO: BASE_URL + "/analysis",
 };

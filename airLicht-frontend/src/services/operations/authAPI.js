@@ -35,7 +35,7 @@ export const login = (formData, navigate) => {
         toast.success("Logged in successfully!");
         navigate("/dashboard");
       } else {
-        toast.error("Login failed: No access token received.");
+        // toast.error("Login failed: No access token received.");
       }
     } catch (error) {
       if (error?.response?.data?.detail) {

@@ -51,7 +51,7 @@ const AuthForm = ({ formType }) => {
       img: imgSrc,
     });
 
-    if (!formData.img) {
+    if (!imgSrc) {
       toast.error("Please capture image!");
       return;
     }

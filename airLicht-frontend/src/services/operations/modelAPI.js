@@ -3,27 +3,25 @@ import { setLoading } from "../../store/slices/authSlice";
 import { apiConnector } from "../apiConnector";
 import { modelEndpoints } from "../apis";
 
-export const provideSuggestions = ({ formData, token }) => {
-  return async (dispatch) => {
-    dispatch(setLoading(true));
+export const provideReco =  async(formData) => {
     const currTostId = toast.loading("Providing suggestions");
-    // const { data, error } = await apiConnector({
-    //   method: "POST",
-    //   url: modelEndpoints.PROVIDE_SUGGESTIONS,
-    //   data: formData,
-    //   token,
-    // });
-
-    // if (error) {
-    //   toast.error("Error in providing suggestions");
-    //   return;
-    // }
-
-    console.log(formData, token);
-    setTimeout(() => {
-      dispatch(setLoading(false));
+    try {
+      const res = await apiConnector(
+        "POST",
+        modelEndpoints.PROVIDE_RECO,
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+        }
+      );
+      console.log(res);
+      return res.data.text;
+      // return "";
+    } catch (error) {
+      console.log(error);
+      toast.error("Error in providing suggestions");
+    } finally {
+      // dispatch(setLoading(false));
       toast.dismiss(currTostId);
-      toast.success("Suggestions provided successfully");
-    }, 2000);
-  };
+    }
 };
