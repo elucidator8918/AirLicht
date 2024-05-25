@@ -16,8 +16,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="relative min-h-16 border-b-[1px] text-richblack-50 border-richblack-700 flex items-center justify-center bg-richblack-800 transition-all duration-200">
-        <div className="w-11/12 z-10 max-w-maxContent flex justify-between items-center flex-col">
+      <div className="fixed top-0 w-full z-10 min-h-16 border-b-[1px] text-richblack-50 border-richblack-700 flex items-center justify-center bg-richblack-800 transition-all duration-200">
+        <div className="w-11/12 max-w-maxContent flex justify-between items-center flex-col lg:flex-row">
           <div className="flex justify-between items-center w-full">
             <div>
               <Link to={"/"}>
@@ -25,7 +25,8 @@ const Navbar = () => {
                   src={Logo}
                   alt="airLicht-logo"
                   loading="lazy"
-                  width={120}
+                  width={140}
+                  
                 />
               </Link>
             </div>
@@ -57,31 +58,26 @@ const Navbar = () => {
             </div>
 
             {!token ? (
-              <>
-                <div className="hidden lg:flex gap-5 justify-center items-center">
-                  <Link to={"/login"}>
-                    <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
-                      Login
-                    </button>
-                  </Link>
-
-                  <Link to={"/signup"}>
-                    <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
-                      Sign up
-                    </button>
-                  </Link>
-                </div>
-              </>
+              <div className="hidden lg:flex gap-5 justify-center items-center">
+                <Link to={"/login"}>
+                  <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
+                    Login
+                  </button>
+                </Link>
+                <Link to={"/signup"}>
+                  <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
+                    Sign up
+                  </button>
+                </Link>
+              </div>
             ) : (
-              <>
-                <div className="hidden lg:flex gap-5 justify-center items-center">
-                  <Link to={"/dashboard"}>
-                    <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
-                      Dashboard
-                    </button>
-                  </Link>
-                </div>
-              </>
+              <div className="hidden lg:flex gap-5 justify-center items-center">
+                <Link to={"/dashboard"}>
+                  <button className="bg-richblack-800 px-4 py-2 rounded-lg border-[1px] border-richblack-600 hover:bg-richblack-900">
+                    Dashboard
+                  </button>
+                </Link>
+              </div>
             )}
 
             <button
@@ -94,7 +90,7 @@ const Navbar = () => {
         </div>
       </div>
       {isSubNavOpened && (
-        <div className="border-b-[1px] z-10 text-richblack-50 border-richblack-700 flex items-center justify-center bg-richblack-800 transition-all duration-200 lg:hidden">
+        <div className="fixed top-16 left-0 right-0 border-b-[1px] z-10 text-richblack-50 border-richblack-700 flex items-center justify-center bg-richblack-800 transition-all duration-200 lg:hidden">
           <ul className="w-full flex flex-col items-center text-richblack-50">
             <li
               className={`bg-richblack-700 w-full text-center p-2 hover:text-yellow-50 ${
@@ -135,15 +131,13 @@ const Navbar = () => {
                 </li>
               </>
             ) : (
-              <>
-                <li
-                  className={`bg-richblack-700 w-full text-center p-2 hover:text-yellow-50 ${
-                    matchRoute("/dashboard") ? "text-yellow-50" : ""
-                  }`}
-                >
-                  <Link to={"/dashboard"}>Dashboard</Link>
-                </li>
-              </>
+              <li
+                className={`bg-richblack-700 w-full text-center p-2 hover:text-yellow-50 ${
+                  matchRoute("/dashboard") ? "text-yellow-50" : ""
+                }`}
+              >
+                <Link to={"/dashboard"}>Dashboard</Link>
+              </li>
             )}
           </ul>
         </div>

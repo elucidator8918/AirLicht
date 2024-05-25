@@ -1,6 +1,6 @@
 import React from "react";
 import HighlightText from "../components/common/HighlightText";
-import AeroPlane from "../assets/aeroplane.png";
+//import AeroPlane from "../assets/aeroplane.png";
 import { useCases } from "../data/use-cases";
 import { keyFunctions } from "../data/key-functions";
 import Footer from "../components/Footer";
@@ -12,12 +12,12 @@ const Home = () => {
       {/* section 1 */}
       <div className="relative min-h-[calc(100vh-80px)] mx-auto flex flex-col max-w-maxContent w-11/12 items-center text-white justify-between md:justify-center">
         <div className="flex flex-col justify-center items-center md:flex-row mt-5 gap-8 md:mt-0">
-          <div className="md:w-[50%] flex flex-col gap-4">
+          <div className="md:w-[50%] flex flex-col gap-4 flex justify-left">
             <p className="text-[40px] font-bold text-richblack-25">
-              Introducing <HighlightText>AI</HighlightText> in{" "}
+              <HighlightText></HighlightText>{" "}
               <HighlightText>
                 <TypeAnimation
-                  sequence={["Aircraft Maintenance!", 1000, ""]}
+                  sequence={["Introducing AI in Aircraft Maintenance!", 1000, ""]}
                   speed={10}
                   cursor={true}
                   repeat={Infinity}
@@ -25,7 +25,7 @@ const Home = () => {
                 />
               </HighlightText>
             </p>
-            <p className="text-richblack-25 text-[18px]">
+            <p className="text-richblack-25 text-[18px]" align="justify">
               The primary goal of this project is to enhance aircraft
               maintenance processes by creating a web application that utilizes
               advanced imaging, analysis, and machine learning techniques to
@@ -34,9 +34,9 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="md:w-[50%] z-10 w-full rounded-md bg-gradient-to-r from-blue-300 via-blue-500 to-blue-900">
+          {/* <div className="md:w-[50%] z-10 w-full rounded-md bg-gradient-to-r from-blue-300 via-blue-500 to-blue-900">
             <img src={AeroPlane} alt="aeroplane" />
-          </div>
+          </div> */}
           <div className="color-round-grad opacity-60 absolute right-0 -bottom-20 w-[60%] h-[60%]"></div>
         </div>
       </div>
@@ -50,9 +50,10 @@ const Home = () => {
           <div className="color-round-grad1 opacity-20 absolute top-0 left-0 w-[60%] h-[60%]"></div>
           {useCases.map((useCase, index) => (
             <div
-              key={index}
-              className="flex flex-col gap-4 bg-richblack-300 bg-opacity-30 p-4 rounded-md"
-            >
+            key={index}
+            className="flex flex-col gap-4 bg-richblack-300 bg-opacity-30 rounded-md cursor-pointer hover:bg-opacity-40 p-4 rounded-md transform transition-transform hover:scale-105"
+            style={{ backdropFilter: "blur(20px)" }}
+          >
               <p className="text-[22px] font-bold text-richblack-5">
                 {useCase.title}
               </p>
@@ -76,7 +77,7 @@ const Home = () => {
           {keyFunctions.map((keyFunction, index) => (
             <div
               key={index}
-              className="flex flex-col gap-4 bg-richblack-300 z-10 bg-opacity-30 p-4 rounded-md cursor-pointer hover:bg-opacity-40 transition-all duration-200"
+              className="flex flex-col gap-4 bg-richblack-300 z-10 bg-opacity-30 p-4 rounded-md cursor-pointer hover:bg-opacity-40 transform transition-transform hover:scale-105"
             >
               <p className="text-[22px] font-bold text-richblack-5">
                 {keyFunction.title}

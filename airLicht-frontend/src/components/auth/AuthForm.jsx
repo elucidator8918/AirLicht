@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { login, signup } from "../../services/operations/authAPI";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import toast from "react-hot-toast";
 import Webcam from "react-webcam";
-import { useCallback, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 
 const AuthForm = ({ formType }) => {
   const webcamRef = useRef(null);
@@ -33,8 +33,6 @@ const AuthForm = ({ formType }) => {
   const [showPass, setShowPass] = useState(false);
 
   const formChangeHandler = (e) => {
-    // const [name, value] = e.target;
-
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
@@ -86,10 +84,35 @@ const AuthForm = ({ formType }) => {
   };
 
   return (
-    <div className="relative mx-auto flex flex-col max-w-maxContent w-11/12 items-center text-white justify-between md:justify-center">
+    <div className="relative mx-auto flex flex-col max-w-maxContent w-11/12 items-center text-white justify-between md:justify-center mt-20">
+      {formType === "login" ? (
+        <div className="p-4 m-4">
+          <h1 className="text-2xl font-bold mb-2">
+          <TypeAnimation className="text-3xl font-bold bg-gradient-to-r from-[#1FA2FF] via-[#12D8FF] to-[#A6FFCB] bg-clip-text text-transparent"
+                  sequence={["Login", 1000, ""]}
+                  speed={10}
+                  cursor={true}
+                  repeat={Infinity}
+                  omitDeletionAnimation={true}
+                />
+          </h1>
+        </div>
+      ) : (
+        <div className="p-4 m-4">
+          <h1 className="text-2xl font-bold mb-2">
+          <TypeAnimation className="text-3xl font-bold bg-gradient-to-r from-[#1FA2FF] via-[#12D8FF] to-[#A6FFCB] bg-clip-text text-transparent"
+                  sequence={["Sign Up", 1000, ""]}
+                  speed={10}
+                  cursor={true}
+                  repeat={Infinity}
+                  omitDeletionAnimation={true}
+                />
+          </h1>
+        </div>
+      )}
       <form
         onSubmit={submitHandler}
-        className="flex flex-col gap-y-4 mt-10 w-full md:w-[450px]"
+        className="flex flex-col gap-y-4 mt-2 w-full md:w-[450px]"
       >
         <label className="w-full">
           <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
@@ -151,13 +174,15 @@ const AuthForm = ({ formType }) => {
                 Retake photo
               </button>
             ) : (
-              <button
-                type="button"
-                onClick={capture}
-                className="bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6"
-              >
-                Capture photo
-              </button>
+              <div className="flex justify-center">
+                <button
+                  type="button"
+                  onClick={capture}
+                  className="bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6"
+                >
+                  Capture photo
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -170,7 +195,7 @@ const AuthForm = ({ formType }) => {
         </button>
       </form>
 
-      {formType == "login" ? (
+      {formType === "login" ? (
         <div className="text-center my-6">
           Don&#39;t have an account?{" "}
           <Link to="/signup" className="text-yellow-50 hover:underline">
