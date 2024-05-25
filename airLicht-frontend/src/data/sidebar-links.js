@@ -8,7 +8,7 @@ export const sidebarLinks = [
   {
     id: 2,
     name: "CAD Analysis",
-    path: "/dashboard/history",
+    path: "/dashboard/CAD",
     icon: "VscVm",
   },
 ];
