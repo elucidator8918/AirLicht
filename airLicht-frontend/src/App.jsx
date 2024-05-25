@@ -33,7 +33,7 @@ function App() {
           }
         >
           <Route path="" element={<ChatWithModel />} />
-          <Route path="/CAD" element={<History />} />
+          <Route path="CAD" element={<History />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
