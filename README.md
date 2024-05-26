@@ -33,6 +33,6 @@ Documentation :
     <td align="center"><img src="" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/Gagan2024">Gagan Srivastava</a></b></sub><br />💬 🚧 👀</td>
     <td align="center"><img src="" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/salonistuti">Saloni Stuti</a></b></sub><br />🤔 👀 📢</td>
     <td align="center"><img src="" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/Tushar35515">Tushar Chaudhary</a></b></sub><br />🌍 👀 📢</td>
-    <td align="center"><img src="" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/">emant Bhimrao Patil</a></b></sub><br />🌍 🎨 📢      </td> 
+    <td align="center"><img src="" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/hemant14050">Hemant Patil</a></b></sub><br />🌍 🎨 📢</td> 
    </tr>
 </table>
